@@ -53,13 +53,17 @@ int main()
     cout << hoe << endl;
 
     // to find  the substring of the  string we do
-    cout << hoe.find('la') << endl;
+    cout << hoe.find("la") << endl;
     if (hoe.find("lee"))
     {
         cout << "ITS THERE " << endl;
     }
 
     // insert functionn is use to string at a certain index
+    // length function to find the length of the string
+    // substr to find the substring of a string we give  it the starting index and the length of the substring for eg
+
+    cout << hoe.substr(2, 5) << endl;
 
     return 0;
 }
