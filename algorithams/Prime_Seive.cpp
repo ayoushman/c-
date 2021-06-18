@@ -25,10 +25,30 @@ void PrintSeive(int n)
     }
 }
 // Prime factorization using seive of erastosthenes
+
+// ================================ i have not done this program this yet======================//
+
+// GCD OF TWO NUMBERS AND
+
+int GCD(int a, int b)
+{
+
+    while (b != 0)
+    {
+        int remainder = a % b;
+        a = b;
+        b = remainder;
+    }
+
+    return a;
+}
 int main()
 {
     int n;
     cin >> n;
     PrintSeive(n);
+    int b = GCD(56, 88);
+
+    cout << b << endl;
     return 0;
 }

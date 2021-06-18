@@ -13,7 +13,7 @@ int main()
     // cout << name << endl;
     cout << str1 << endl;
 
-    getline(cin, name1); /*This function takes the input of the whole sentence with spaces*/
+    // getline(cin, name1); /*This function takes the input of the whole sentence with spaces*/
     cout << name1 << endl;
 
     // appending in the string
@@ -64,6 +64,11 @@ int main()
     // substr to find the substring of a string we give  it the starting index and the length of the substring for eg
 
     cout << hoe.substr(2, 5) << endl;
+
+    string s = "Ayushman";
+    cout << s << endl;
+    s = s.substr(1);
+    cout << s << endl;
 
     return 0;
 }
