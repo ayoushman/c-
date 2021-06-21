@@ -23,7 +23,6 @@ void insertAthead(Node *&head, int val)
     if (head == NULL)
     {
         Node *n = new Node(val);
-        n->next = head;
 
         head = n;
     }
@@ -50,9 +49,26 @@ void insetAtTail(Node *&head, int val)
     n->next = NULL;
 }
 
-void insertAtPos(int val)
+void insertAtPos(Node *&head, int val, int pos)
 {
+    Node *temp = head;
+
+    int count = 1;
+
+    while (count < pos - 1)
+    {
+        temp = temp->next;
+        count++;
+    }
+
+    Node *n = new Node(val);
+
+    n->next = temp->next;
+
+    temp->next = n;
+    n->prev = temp;
 }
+
 void display(Node *&head)
 {
     Node *temp = head;
@@ -73,6 +89,9 @@ int main()
     insertAthead(head, 6);
     insetAtTail(head, 9);
     insetAtTail(head, 12);
+
     insetAtTail(head, 11);
+    insertAtPos(head, 4, 3);
+    insertAtPos(head, 4, 6);
     display(head);
 }
