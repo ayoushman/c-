@@ -41,6 +41,39 @@ void display(Node *head)
     }
 }
 
+
+void insertAtHead(Node * & head , int val){
+  
+  Node  * n = new Node(val);
+  
+    if(head==NULL){
+        head = n ;
+    }
+
+
+    n->next = head;
+    n = head;
+}
+
+
+void inserAfterPos(Node * & head , int val , int pos){
+
+    Node * n = new Node(val);
+
+    int currnt  = 0 ; 
+
+    Node * temp  = head ; 
+
+while(currnt<=pos){
+    temp =  temp->next;
+    currnt++;
+}
+
+n->next = temp->next;
+temp->next = n ;
+
+}
+
 int main()
 {
     Node *head = NULL;
@@ -50,5 +83,6 @@ int main()
     insertAtTail(head, 7);
     insertAtTail(head, 1);
     insertAtTail(head, 9);
+    // inserAfterPos(head , 11 , 4);
     display(head);
 }
