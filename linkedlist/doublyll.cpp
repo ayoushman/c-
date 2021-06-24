@@ -89,7 +89,7 @@ int main()
     insertAthead(head, 6);
     insetAtTail(head, 9);
     insetAtTail(head, 12);
-
+cout<<"checking";
     insetAtTail(head, 11);
     insertAtPos(head, 4, 3);
     insertAtPos(head, 4, 6);
