@@ -21,6 +21,7 @@ void insertAtTail(Node *&head, int val)
     if (head == NULL)
     {
         head = n;
+        return;
     }
     Node *temp = head;
     while (temp->next != NULL)
@@ -48,11 +49,12 @@ void insertAtHead(Node * & head , int val){
   
     if(head==NULL){
         head = n ;
+        return;
     }
 
 
     n->next = head;
-    n = head;
+    head = n;
 }
 
 
