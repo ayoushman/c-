@@ -69,7 +69,7 @@ int main()
     st.push(1);
     st.push(10);
     st.push(11);
-    st.pop();
+    st.pop();       
 
     st.peek();
     st.pop();
