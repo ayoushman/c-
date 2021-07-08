@@ -101,6 +101,82 @@ int LevelKSum(Node *&root, int k)
 
     return ans;
 }
+// Right View of the binary tree
+void rightView(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    queue<Node *> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        int n = q.size();
+        cout << n << " n" << endl;
+        for (int i = 0; i < n; i++)
+        {
+            Node *curr = q.front();
+            cout << q.front()->data << "FRONT QUEUE" << endl;
+            q.pop();
+
+            if (i == n - 1)
+            {
+                cout << curr->data << endl;
+            }
+
+            if (curr->left != NULL)
+            {
+                q.push(curr->left);
+            }
+
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
+            }
+        }
+    }
+}
+
+// Left view of the binary tree
+
+void leftView(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        int n = q.size();
+
+        for (int i = 1; i <=n; i++)
+        {
+            Node *curr = q.front();
+            q.pop();
+
+            if (i == 1)
+            {
+
+                cout << curr->data << " " << endl;
+            }
+
+            if (curr->left != NULL)
+            {
+                q.push(curr->left);
+            }
+
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
+            }
+        }
+    }
+}
 int main()
 {
     Node *root = new Node(1);
@@ -115,4 +191,10 @@ int main()
     LevelOrderTraversal(root);
     cout << endl;
     cout << LevelKSum(root, 2) << " " << endl;
+
+    // RIGHT VIEW IN THE TREE
+    // rightView(root);
+
+    // LEFT VIEW IN THE TREE
+ leftView(root);
 }

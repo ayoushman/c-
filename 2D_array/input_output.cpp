@@ -1,4 +1,5 @@
 #include <iostream>
+#include<vector>
 using namespace std;
 
 int main()
@@ -15,6 +16,8 @@ int main()
     cout << "Enter the Element you want to search" << endl;
     cin >> key;
     int a[rows][cols];
+
+
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
@@ -35,6 +38,8 @@ int main()
         cout << endl;
     }
 
+
+
     // Searching for the element
 
     for (int i = 0; i < rows; i++)
@@ -49,4 +54,12 @@ int main()
         }
         cout << endl;
     }
+
+
+    // Leetcode Rotate the image by 90 degree of the 2D array 
+
+
+    //   void rotate(vector<vector<int>> &matrix)
+        
+    
 }
