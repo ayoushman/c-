@@ -102,9 +102,16 @@ int main()
     int inorder[] = {4, 2, 1, 5, 3};
     int postorder[] = {4 , 2 , 5 , 3 ,1};
 
-    Node *root = buildTree(preorder, inorder, 0, 4);
-Node* roo2 = BuildTreePostorder(postorder , inorder , 0 , 4);
+//     Node *root = buildTree(preorder, inorder, 0, 4);
+// Node* roo2 = BuildTreePostorder(postorder , inorder , 0 , 4);
+
+Node* root = new Node(5);
+root->left = new Node(1);
+root->right = new Node(7);
+root->left->right = new Node(3);
+root->left->right->left = new Node(2);
+root->left->right->right = new Node(4);
     InOrder(root);
     cout<<endl;
-    InOrder(roo2);
+    // InOrder(roo2);
 }
