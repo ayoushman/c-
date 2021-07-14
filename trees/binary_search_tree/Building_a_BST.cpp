@@ -75,16 +75,16 @@ Node *searchInBst(Node *root, int key)
 
 // inorder successor
 
-
-Node* inorderSuccessor(Node* root ){
-    Node* curr = root;
-    while(curr&& curr->left !=NULL){
-        curr= curr->left;
+Node *inorderSuccessor(Node *root)
+{
+    Node *curr = root;
+    while (curr && curr->left != NULL)
+    {
+        curr = curr->left;
     }
 
-    return curr ;
+    return curr;
 }
-
 
 // Delete in bst
 
@@ -117,14 +117,44 @@ Node *deleteinBST(Node *root, int deleteNode)
             return temp;
         }
 
-        Node* temp = inorderSuccessor(root->right);
+        Node *temp = inorderSuccessor(root->right);
         root->data = temp->data;
-        root->right = deleteinBST(root->right , temp->data);
+        root->right = deleteinBST(root->right, temp->data);
     }
 
     return root;
 }
 
+// Construct BST from a given preorder
+
+Node *construct_bst(int arr[], int *preorder_index, int key, int min, int max, int n)
+{
+
+    if(*preorder_index>= n){
+        return NULL;
+    }
+    Node *root = NULL;
+
+    if (key < max && key > min)
+    {
+        root = new Node(key);
+        *preorder_index = *preorder_index + 1;
+         
+// if index is less than the n then we will build the node tree  
+        if (*preorder_index < n)
+        {
+            root->left = construct_bst(arr, preorder_index, arr[*preorder_index], min, key, n);
+        }
+
+        // if index is still less than the n then we will build the right node of the tree
+
+        if(*preorder_index> n){
+            root->right = construct_bst(arr , preorder_index , arr[*preorder_index] , key , max , n );
+        }
+    }
+
+    return root;
+}
 int main()
 {
 
@@ -149,6 +179,6 @@ int main()
         cout << "Key dont exist";
     }
 
-    Node* newroot = deleteinBST(root , 2);
+    Node *newroot = deleteinBST(root, 2);
     PreOrder(newroot);
 }
