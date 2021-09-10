@@ -102,43 +102,71 @@ Node *mergell(Node *&head1, Node *&head2)
         p3 = p3->next;
     }
 
-    while (p1!=NULL)
+    while (p1 != NULL)
     {
         p3->next = p1;
         p1 = p1->next;
         p3 = p3->next;
     }
 
-    while(p2!=NULL){
+    while (p2 != NULL)
+    {
         p3->next = p2;
-        p2=p2->next;
+        p2 = p2->next;
         p3 = p3->next;
     }
-    
 
     return dummyNode->next;
+}
+
+// Rotate list
+
+Node *rotateList(Node *head, int k)
+{
+
+    while (k > 0)
+    {
+        Node *temp = head;
+        while (temp->next->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        temp->next->next = head;
+        head = temp->next;
+        temp->next = NULL;
+        k--;
+    }
+
+    return head;
 }
 
 int main()
 {
     Node *head = NULL;
     Node *head1 = NULL;
-    insertAtTail(head, 5);
-    insertAtTail(head, 2);
-    insertAtTail(head, 7);
     insertAtTail(head, 1);
-    insertAtTail(head, 9);
-    insertAtTail(head1, 4);
-    insertAtTail(head1, 11);
-    insertAtTail(head1, 1);
-    insertAtTail(head1, 2);
-    insertAtTail(head1, 9);
-    // inserAfterPos(head , 11 , 4);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    insertAtTail(head, 4);
+    insertAtTail(head, 5);
+
     display(head);
-    cout << endl;
-    display(head1);
-  cout<<endl;
-    Node* newNode = mergell(head , head1);
-  
-    display(newNode);
+    int k =2;
+    Node* newhead = rotateList(head , k);
+    cout<<endl;
+    display(newhead);
+    // insertAtTail(head1, 4);
+    // insertAtTail(head1, 11);
+    // insertAtTail(head1, 1);
+    // insertAtTail(head1, 2);
+    // insertAtTail(head1, 9);
+    // // inserAfterPos(head , 11 , 4);
+    // display(head);
+    // cout << endl;
+    // display(head1);
+    // cout << endl;
+    // Node *newNode = mergell(head, head1);
+
+    // display(newNode);
 }

@@ -125,25 +125,37 @@ int main()
     //     cout << endl;
     // }
 
-    cout << "Enter the height of pyramid " << endl;
+    // cout << "Enter the height of pyramid " << endl;
 
-    cin >> row_number;
-    // 8. 0-1 pattern
+    // cin >> row_number;
+    // // 8. 0-1 pattern
 
-    for (int i = 1; i <= row_number; i++)
-    {
-        for (int j = 1; j <= i; j++)
-        {
+    // for (int i = 1; i <= row_number; i++)
+    // {
+    //     for (int j = 1; j <= i; j++)
+    //     {
 
-            if ((i + j) % 2 == 0)
-            {
-                cout << " 1";
-                continue;
-            }
+    //         if ((i + j) % 2 == 0)
+    //         {
+    //             cout << " 1";
+    //             continue;
+    //         }
 
-            cout << " 0";
-        }
+    //         cout << " 0";
+    //     }
 
-        cout << endl;
+    //     cout << endl;
+    // }
+
+
+    int ival = 123;
+    int &add = ival;
+add++;
+    cout<<add<<endl;
+    cout<<ival<<endl;
+
+  
+    int * pt1 = &ival;
+cout<<pt1<<endl;
+    cout<<*pt1<<endl;
     }
-}

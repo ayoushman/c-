@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -130,7 +131,8 @@ Node *deleteinBST(Node *root, int deleteNode)
 Node *construct_bst(int arr[], int *preorder_index, int key, int min, int max, int n)
 {
 
-    if(*preorder_index>= n){
+    if (*preorder_index >= n)
+    {
         return NULL;
     }
     Node *root = NULL;
@@ -139,8 +141,8 @@ Node *construct_bst(int arr[], int *preorder_index, int key, int min, int max, i
     {
         root = new Node(key);
         *preorder_index = *preorder_index + 1;
-         
-// if index is less than the n then we will build the node tree  
+
+        // if index is less than the n then we will build the node tree
         if (*preorder_index < n)
         {
             root->left = construct_bst(arr, preorder_index, arr[*preorder_index], min, key, n);
@@ -148,8 +150,9 @@ Node *construct_bst(int arr[], int *preorder_index, int key, int min, int max, i
 
         // if index is still less than the n then we will build the right node of the tree
 
-        if(*preorder_index> n){
-            root->right = construct_bst(arr , preorder_index , arr[*preorder_index] , key , max , n );
+        if (*preorder_index < n)
+        {
+            root->right = construct_bst(arr, preorder_index, arr[*preorder_index], key, max, n);
         }
     }
 
@@ -158,27 +161,35 @@ Node *construct_bst(int arr[], int *preorder_index, int key, int min, int max, i
 int main()
 {
 
-    Node *root = NULL;
+    // Node *root = NULL;
 
-    root = insertInBST(root, 5);
-    insertInBST(root, 1);
-    insertInBST(root, 6);
-    insertInBST(root, 2);
+    // root = insertInBST(root, 5);
+    // insertInBST(root, 1);
+    // insertInBST(root, 6);
+    // insertInBST(root, 2);
 
-    insertInBST(root, 4);
+    // insertInBST(root, 4);
 
-    PreOrder(root);
+    // PreOrder(root);
 
-    if (searchInBst(root, 6))
-    {
-        cout << "Key exist";
-    }
+    // if (searchInBst(root, 6))
+    // {
+    //     cout << "Key exist";
+    // }
 
-    else
-    {
-        cout << "Key dont exist";
-    }
+    // else
+    // {
+    //     cout << "Key dont exist";
+    // }
 
-    Node *newroot = deleteinBST(root, 2);
-    PreOrder(newroot);
+    // Node *newroot = deleteinBST(root, 2);
+    // PreOrder(newroot);
+
+    int preorder_arr[] = {10, 2, 4, 5, 13, 45};
+    int preorder_idx = 0;
+    int n = 6;
+
+    Node *root2 = construct_bst(preorder_arr, &preorder_idx, preorder_arr[0], INT_MIN, INT_MAX, n);
+
+    PreOrder(root2);
 }
