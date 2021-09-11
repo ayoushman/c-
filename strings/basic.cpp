@@ -78,7 +78,7 @@ int main()
 string b = "Heya motherfucker";
 string s  = "hjeiru";
 for( auto c : b){
-// auto a =string(c + "Hey there");
+auto a =string(c + "Hey there");
 cout<< a << endl;
 }
     return 0;
